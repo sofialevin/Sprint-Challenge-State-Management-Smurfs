@@ -14,14 +14,14 @@ export const getSmurfs = () => dispatch => {
   .catch(err => dispatch({ type: SMURFS_FAIL, payload: err }));
 };
 
-export const createSmurfs = (newSmurf) => dispatch => {
+export const createSmurfs = newSmurf => dispatch => {
+    console.log("new smurf")
     dispatch({ type: SMURFS_START });
     axios
-    .post(`http://localhost:3333/smurfs`, {
-        newSmurf
-    })
+    .post(`http://localhost:3333/smurfs`, newSmurf
+    )
     .then(res => {
-        dispatch({ type: SMURFS_SUCCESS, payload: res })
+        dispatch({ type: SMURFS_SUCCESS, payload: res.data })
     })
     .catch(err => dispatch({ type: SMURFS_FAIL, payload: err }));
   };

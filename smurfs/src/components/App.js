@@ -1,19 +1,38 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import 'semantic-ui-css/semantic.min.css';
 
 import { connect } from 'react-redux';
 
-import { getSmurfs } from '../actions';
+import { getSmurfs, createSmurfs } from '../actions';
+
+import SmurfsForm from './SmurfsForm';
 
 function App(props) {
+
   useEffect(() => {
     props.getSmurfs();
   }, [])
 
+  const newSmurf = (smurf) => {
+    props.createSmurfs(smurf);
+  }
+
   return (
-  <div>
-    {props.smurfs.map((smurf) => <p>{smurf.name}</p>)}
-  </div>);
+    <div>
+      <SmurfsForm newSmurf={newSmurf}/>
+       <div>
+        {props.smurfs.map((smurf) => 
+        <div>
+            <p>Name: {smurf.name}</p>
+            <p>Age: {smurf.age}</p>
+            <p>Height: {smurf.height}</p>
+        </div>
+        
+        )}
+      </div>
+    </div>
+ );
 }
 
 const mapStateToProps = state => {
@@ -24,4 +43,4 @@ const mapStateToProps = state => {
   }
 }
  
-export default connect(mapStateToProps, { getSmurfs })(App);
+export default connect(mapStateToProps, { getSmurfs, createSmurfs })(App);
