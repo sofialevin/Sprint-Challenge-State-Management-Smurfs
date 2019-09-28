@@ -1,17 +1,18 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import { connect } from 'react-redux';
 
-import { getSmurfs, createSmurfs } from '../actions';
+import { getSmurfs } from '../actions';
 
-function App() {
-
-
+function App(props) {
+  useEffect(() => {
+    props.getSmurfs();
+  }, [])
 
   return (
   <div>
-
+    {props.smurfs.map((smurf) => <p>{smurf.name}</p>)}
   </div>);
 }
 
@@ -23,4 +24,4 @@ const mapStateToProps = state => {
   }
 }
  
-export default connect(mapStateToProps, { getSmurfs, createSmurfs })(App);
+export default connect(mapStateToProps, { getSmurfs })(App);

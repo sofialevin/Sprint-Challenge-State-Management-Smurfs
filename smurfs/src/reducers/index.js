@@ -8,6 +8,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   console.log('reducer', action)
+  console.log('test')
   switch (action.type) {
     case SMURFS_START:
       return {
