@@ -24,7 +24,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What problem does the context API help solve?
 
-  The context API helps all the components have access to state, without having to pass props from parent component to child component, which gets very cumbersome as you start nesting more and morecomponents.
+  The context API helps all the components have access to state, without having to pass props from parent component to child component, which gets very cumbersome as you start nesting more and more components.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
