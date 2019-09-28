@@ -16,13 +16,9 @@ function App(props) {
     props.getSmurfs();
   }, [])
 
-  const newSmurf = (smurf) => {
-    props.createSmurfs(smurf);
-  }
-
   return (
-    <div>
-      <SmurfsForm newSmurf={newSmurf}/>
+    <div className="App">
+      <SmurfsForm createSmurfs={props.createSmurfs}/>
        <Card.Group>
         {props.smurfs.map((smurf) => <SmurfCard smurf={smurf} deleteSmurfs={props.deleteSmurfs}/>
         )}
