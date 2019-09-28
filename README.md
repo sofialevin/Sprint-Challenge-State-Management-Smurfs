@@ -23,10 +23,26 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  The context API helps all the components have access to state, without having to pass props from parent component to child component, which gets very cumbersome as you start nesting more and morecomponents.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The store contains the global state for our application, which makes it the single source of truth.
+Reducers are pure functions that allow us to update the state in a predictable manner.
+Actions are packets of information that describe what interaction is going to happen and (optionally) what data goes along with that interaction.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+The biggest difference is that Application state is global while component state is local. With Redux, as logn as you connect your component to the store, all the components will have access to the Application/Global state. Component state will only be available to that component, unless you pass it to a child component via props. If you only need one component to have access to state (or maybe also its child) component state is the better choice. If multiple components needs access to state then application state is the way to go.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  In Redux reducers are synchronous. redux-thunk allows our action-creators to perform asynchronous operations (like API calls).
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is my favorite because the single source of truth aspect from the Redux store makes it very easy to understand what's going on with the state of our application.
 
 ## Project Set Up
 
